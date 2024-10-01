@@ -20,15 +20,15 @@ public final class Deeplink: DeeplinkProtocol {
         self.deeplinkOpener = deeplinkOpener
     }
     
-    public func openWiki(_ queryItems: [URLQueryItem], deeplinkType: DeeplinkType) async {
-        guard let url = buildURL(queryItems, deeplinkType: deeplinkType) else {
+    public func openWiki(_ queryItems: [URLQueryItem], type: DeeplinkType) async {
+        guard let url = buildURL(queryItems, type: type) else {
             return
         }
         await deeplinkOpener.openDeeplink(url)
     }
     
-    private func buildURL(_ queryItems: [URLQueryItem], deeplinkType: DeeplinkType) -> URL? {
-        guard let baseURL = URL(string: deeplinkType.rawValue) else {
+    private func buildURL(_ queryItems: [URLQueryItem], type: DeeplinkType) -> URL? {
+        guard let baseURL = URL(string: type.rawValue) else {
             return nil
         }
 

@@ -19,5 +19,5 @@ public protocol DeeplinkOpenerProtocol {
 
 @MainActor
 public protocol DeeplinkProtocol {
-    func openWiki(_ queryItems: [URLQueryItem], deeplinkType: DeeplinkType) async
+    func openWiki(_ queryItems: [URLQueryItem], type: DeeplinkType) async
 }
