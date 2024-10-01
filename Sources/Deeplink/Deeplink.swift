@@ -7,20 +7,10 @@
 
 import SwiftUI
 
-@MainActor
-public protocol DeeplinkOpenerProtocol {
-    func openDeeplink(_ url: URL)
-}
-
 extension UIApplication: DeeplinkOpenerProtocol {
     public func openDeeplink(_ url: URL) {
         UIApplication.shared.open(url)
     }
-}
-
-@MainActor
-public protocol DeeplinkProtocol {
-    func openWiki(_ queryItems: [URLQueryItem])
 }
 
 public final class Deeplink: DeeplinkProtocol {
