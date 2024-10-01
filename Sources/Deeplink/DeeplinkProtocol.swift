@@ -7,6 +7,11 @@
 
 import Foundation
 
+public enum DeeplinkType: String {
+    case places = "wikipedia://places"
+    case other = "wikipedia://other"
+}
+
 @MainActor
 public protocol DeeplinkOpenerProtocol {
     func openDeeplink(_ url: URL) async
@@ -14,5 +19,5 @@ public protocol DeeplinkOpenerProtocol {
 
 @MainActor
 public protocol DeeplinkProtocol {
-    func openWiki(_ queryItems: [URLQueryItem]) async
+    func openWiki(_ queryItems: [URLQueryItem], deeplinkType: DeeplinkType) async
 }
