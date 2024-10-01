@@ -20,11 +20,11 @@ public final class Deeplink: DeeplinkProtocol {
         self.deeplinkOpener = deeplinkOpener
     }
     
-    public func openWiki(_ queryItems: [URLQueryItem]) {
+    public func openWiki(_ queryItems: [URLQueryItem]) async {
         guard let url = buildURL(queryItems) else {
             return
         }
-        deeplinkOpener.openDeeplink(url)
+        await deeplinkOpener.openDeeplink(url)
     }
     
     private func buildURL(_ queryItems: [URLQueryItem]) -> URL? {
